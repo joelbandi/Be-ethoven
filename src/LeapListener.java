@@ -119,7 +119,7 @@ public class LeapListener extends Listener {
 	
     public void printfile(String l, String r){
 		String content = l+"	"+r;
-		try(FileWriter fw = new FileWriter("src/positions.txt", true);
+		try(FileWriter fw = new FileWriter("positions.txt", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
