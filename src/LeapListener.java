@@ -1,5 +1,13 @@
 import com.leapmotion.leap.*;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
 public class LeapListener extends Listener {
 
 	String r = "";
@@ -13,7 +21,7 @@ public class LeapListener extends Listener {
 
 		Frame frame = controller.frame();
 		HandList handlist = frame.hands();
-
+		
 		if (handlist.count() < 2) {
 			System.out.println("Put both your hands in range");
 			return;
@@ -32,8 +40,8 @@ public class LeapListener extends Listener {
 		float lefty = leftvector.getY();
 
 		
-
-		GestureList gl = frame.gestures();
+		Frame frame1 = controller.frame(1);
+		GestureList gl = frame1.gestures();
 		if (!gl.isEmpty()) {
 			keytap(gl);
 		}
@@ -42,7 +50,7 @@ public class LeapListener extends Listener {
 		boolean chk = righthand.isValid() && righthand.isValid();
 		rightcheck(righty, rightx, chk);
 		leftcheck(lefty, leftx, chk);
-//		System.out.println(l + " and " + r);
+		System.out.println(l + " and " + r);
 	}
 
 	public void keytap(GestureList gl) {
@@ -55,7 +63,8 @@ public class LeapListener extends Listener {
 		}
 
 		Pointable pointable = keytapgesture.pointable();
-		System.out.println(Boolean.toString(true)+ pointable.id());
+		Hand h = pointable.hand();
+		System.out.println(h.id()+"----->>"+pointable.id());
 
 	}
 
@@ -83,20 +92,51 @@ public class LeapListener extends Listener {
 		if (lefty <= 150.0) {
 			if (leftx < -150.0 && chk) {
 				l = "1";
+				play();
 			} else if (leftx > -100.0 && chk) {
 				l = "3";
+				play();
 			} else if (chk) {
 				l = "2";
+				play();
 			}
 		} else {
 			if (leftx < -150.0 && chk) {
 				l = "1#";
+				play();
 			} else if (leftx > -100.0 && chk) {
 				l = "3#";
+				play();
 			} else if (chk) {
 				l = "2#";
+				play();
 			}
 		}
+		
+		
+		printfile(l,r);	
+		
+	}
+	
+	
+	
+	public void printfile(String l, String r){
+		String content = l+"	-	"+r;
+		try(FileWriter fw = new FileWriter("/home/joel/Devspace/Be-ethoven/src/positions.txt", true);
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw))
+			{
+			    out.println(content);
+			} catch (IOException e) {
+				return;
+			}
+		
+	}
+	
+	
+	public void play(){
+//		Choir choir = new Choir("1");
+//		choir.run();
 	}
 
 }

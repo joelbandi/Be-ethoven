@@ -7,5 +7,10 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/joel/Desktop/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/lib/x64"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/joel/Desktop/jMusic1.6.4.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/joel/Desktop/inst"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
