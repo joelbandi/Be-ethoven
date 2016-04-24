@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.leapmotion.leap.*;
 public class Main {
@@ -26,11 +29,12 @@ public class Main {
 		controller.config().setFloat("Gesture.KeyTap.MinDownVelocity", 40.0f);
 		controller.config().setFloat("Gesture.KeyTap.HistorySeconds", .2f);
 		controller.config().setFloat("Gesture.KeyTap.MinDistance", 1.0f);
+		controller.setPolicy(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
 		controller.config().save();
 		
 		/**
 		 * 
-		 * Adding the main 'Game loop' to this thing. Exits loop once eneter is pressed.. 
+		 * Adding the main 'Game loop' to this thing. Exits loop once enter is pressed.. 
 		 */
         System.out.println("Press Enter to quit...");
         try {
@@ -47,7 +51,10 @@ public class Main {
         controller.removeListener(listener);
         
 		
-	}
+        
 
+    		
+    }
 }
+
 

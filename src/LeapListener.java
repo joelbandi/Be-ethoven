@@ -13,12 +13,14 @@ public class LeapListener extends Listener {
 	String r = "";
 	String l = "";
 
+	
+	private Parse parse = new Parse();
 	public void onConnect(Controller controller) {
 		System.out.println("Controller connected");
 	}
 
 	public void onFrame(Controller controller) {
-
+		
 		Frame frame = controller.frame();
 		HandList handlist = frame.hands();
 		
@@ -51,6 +53,12 @@ public class LeapListener extends Listener {
 		rightcheck(righty, rightx, chk);
 		leftcheck(lefty, leftx, chk);
 		System.out.println(l + " and " + r);
+		
+		
+		
+		
+		String content = l+"\t"+r;
+		Parse.parseplay(content);
 	}
 
 	public void keytap(GestureList gl) {
@@ -92,37 +100,26 @@ public class LeapListener extends Listener {
 		if (lefty <= 150.0) {
 			if (leftx < -150.0 && chk) {
 				l = "1";
-				play();
 			} else if (leftx > -100.0 && chk) {
 				l = "3";
-				play();
 			} else if (chk) {
 				l = "2";
-				play();
 			}
 		} else {
 			if (leftx < -150.0 && chk) {
 				l = "1#";
-				play();
 			} else if (leftx > -100.0 && chk) {
 				l = "3#";
-				play();
 			} else if (chk) {
 				l = "2#";
-				play();
 			}
 		}
-		
-		
-		printfile(l,r);	
-		
 	}
 	
 	
-	
-	public void printfile(String l, String r){
+    public void printfile(String l, String r){
 		String content = l+"	"+r;
-		try(FileWriter fw = new FileWriter("/home/joel/Devspace/Be-ethoven/src/positions.txt", true);
+		try(FileWriter fw = new FileWriter("src/positions.txt", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
@@ -130,13 +127,10 @@ public class LeapListener extends Listener {
 			} catch (IOException e) {
 				return;
 			}
-		
-	}
+    }
 	
 	
-	public void play(){
-//		Choir choir = new Choir("1");
-//		choir.run();
-	}
 
+	
+	
 }

@@ -12,5 +12,6 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/joel/Desktop/inst"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/joel/Desktop/jfugue-5.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
