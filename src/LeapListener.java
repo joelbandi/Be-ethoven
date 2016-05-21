@@ -114,6 +114,7 @@ public class LeapListener extends Listener {
 				l = "2#";
 			}
 		}
+<<<<<<< HEAD
 		
 		
 		
@@ -121,3 +122,25 @@ public class LeapListener extends Listener {
 	
 	
 }
+=======
+	}
+	
+	
+    public void printfile(String l, String r){
+		String content = l+"	"+r;
+		try(FileWriter fw = new FileWriter("positions.txt", true);
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw))
+			{
+			    out.println(content);
+			} catch (IOException e) {
+				return;
+			}
+    }
+	
+	
+
+	
+	
+}
+>>>>>>> 0ea703f1223d6b9ac3539510abcbf84af7c93107

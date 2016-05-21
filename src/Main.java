@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+>>>>>>> 0ea703f1223d6b9ac3539510abcbf84af7c93107
 
 import com.leapmotion.leap.*;
 public class Main {
@@ -31,7 +38,11 @@ public class Main {
 		
 		/**
 		 * 
+<<<<<<< HEAD
 		 * Adding the main 'Game loop' to this thing. Exits loop once eneter is pressed.. 
+=======
+		 * Adding the main 'Game loop' to this thing. Exits loop once enter is pressed.. 
+>>>>>>> 0ea703f1223d6b9ac3539510abcbf84af7c93107
 		 */
         System.out.println("Press Enter to quit...");
         try {
@@ -48,7 +59,17 @@ public class Main {
         controller.removeListener(listener);
         
 		
+<<<<<<< HEAD
 	}
 
 }
 
+=======
+        
+
+    		
+    }
+}
+
+
+>>>>>>> 0ea703f1223d6b9ac3539510abcbf84af7c93107
