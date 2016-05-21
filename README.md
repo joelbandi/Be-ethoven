@@ -1,4 +1,6 @@
 #Be-ethoven
+![Leap Sensor](https://github.com/joelbandi/Be-ethoven/blob/master/beethoven.png "Leap Sensor")
+
 ###This project allows you to wave your hands through the air and generate musical notes accordingly. YOU WILL NEED LEAP MOTION SENSOR FOR THIS PROJECT TO WORK.
 
 #####UPDATE: will convert to a maven project in future for dependence management.
